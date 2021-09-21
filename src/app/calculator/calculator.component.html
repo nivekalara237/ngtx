@@ -1,0 +1,67 @@
+<div class="card-container">
+
+    <div class="card">
+        <div class="card-body">
+            <form #f="ngForm" novalidate>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="mb-0">
+                            <input id="x" type="number" [(ngModel)]="xVal" class="form-control"
+                                   [ngModelOptions]="{standalone: true}" #xxVal="ngModel"
+                                   placeholder="X">
+                        </div>
+                    </div>
+                    <div class="col-1 text-center">
+                        <h2>+</h2>
+                    </div>
+                    <div class="col-3">
+                        <div class="mb-0">
+                            <input id="y" #yyVal="ngModel" [(ngModel)]="yVal"
+                                   class="form-control" pattern="\d+"
+                                   [ngModelOptions]="{standalone: true}"
+                                   placeholder="Y" type="text">
+                        </div>
+                    </div>
+                    <div class="col-1 text-center">
+                        <h2>=</h2>
+                    </div>
+                    <div class="col-2">
+                        <h4 id="res_1" class="text-primary">{{ sum() }}</h4>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+          <h1 class="card-title">CalculatorJS</h1>
+        </div>
+        <div class="card-body">
+            <form #f2="ngForm" (submit)="callMathJsApi()" novalidate>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="mb-0">
+                            <input type="text" [(ngModel)]="expression" class="form-control"
+                                   [ngModelOptions]="{standalone: true}" #_expression="ngModel"
+                                   placeholder="Expression: 2+3*sqrt(4)">
+                        </div>
+                    </div>
+                    <div class="col-3 text-center">
+                        <button (click)="callMathJsApi()" type="submit" id="submitBtn" class="btn btn-outline-danger btn-block">
+                          Calculate
+                        </button>
+                    </div>
+                    <div class="col-1 text-center">
+                      <h2>=</h2>
+                    </div>
+                    <div class="col-2">
+                        <h4 id="res_2" class="text-primary">{{ expressionRes }}</h4>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
